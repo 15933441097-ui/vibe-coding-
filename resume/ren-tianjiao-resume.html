@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>任天娇｜AI 产品经理简历</title>
+  <style>
+    :root {
+      --bg: #f6f8ff;
+      --card: rgba(255, 255, 255, 0.84);
+      --text: #172033;
+      --muted: #5d6b86;
+      --line: rgba(42, 59, 95, 0.12);
+      --primary: #4f7cff;
+      --primary-2: #7f5cff;
+      --accent: #10b981;
+      --warning: #f59e0b;
+      --shadow: 0 24px 70px rgba(35, 52, 94, 0.15);
+      --radius: 28px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1020;
+      --card: rgba(18, 26, 48, 0.82);
+      --text: #f3f6ff;
+      --muted: #aab6d3;
+      --line: rgba(222, 231, 255, 0.14);
+      --primary: #7aa2ff;
+      --primary-2: #b895ff;
+      --accent: #34d399;
+      --warning: #fbbf24;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79, 124, 255, 0.25), transparent 32rem),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.18), transparent 28rem),
+        radial-gradient(circle at 40% 100%, rgba(127, 92, 255, 0.18), transparent 30rem),
+        var(--bg);
+      font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 16px;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 16px;
+      padding: 12px 14px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .avatar {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: #fff;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 12px 30px rgba(79, 124, 255, 0.35);
+    }
+
+    .nav { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+    .nav a, .button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 14px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav a:hover, .button:hover { transform: translateY(-2px); color: var(--text); border-color: var(--primary); }
+    .actions { display: flex; gap: 8px; }
+    .button { font: inherit; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      padding: 56px 0 28px;
+      align-items: stretch;
+    }
+
+    .hero-main { padding: 42px; position: relative; overflow: hidden; }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(79, 124, 255, 0.26), rgba(16, 185, 129, 0.22));
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(79, 124, 255, 0.12);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .ope-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      color: #fff;
+      background: linear-gradient(135deg, #00b8b8, var(--primary), var(--primary-2));
+      box-shadow: 0 16px 34px rgba(0, 184, 184, 0.28);
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+    .ope-badge small {
+      opacity: 0.86;
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+    h1 { margin: 18px 0 6px; font-size: clamp(42px, 7vw, 78px); line-height: 1; letter-spacing: -0.06em; }
+    .subtitle { margin: 0 0 24px; color: var(--muted); font-size: clamp(18px, 2.4vw, 26px); }
+    .hero-copy { max-width: 720px; margin: 0; color: var(--muted); font-size: 17px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .chip {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 14px;
+    }
+
+    .profile-card { padding: 28px; display: grid; gap: 16px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(127, 92, 255, 0.08);
+      border: 1px solid var(--line);
+    }
+    .contact-item b { display: block; font-size: 13px; color: var(--muted); }
+    .contact-item span { font-weight: 700; word-break: break-all; }
+
+    section { margin: 24px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    h2 { margin: 0; font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.04em; }
+    .section-head p { max-width: 600px; margin: 0; color: var(--muted); }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 24px; }
+    .metric { position: relative; overflow: hidden; }
+    .metric strong { display: block; font-size: 42px; line-height: 1; color: var(--primary); letter-spacing: -0.04em; }
+    .metric span { color: var(--muted); }
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(79, 124, 255, 0.12);
+    }
+
+    .match-section { padding: 30px; overflow: hidden; position: relative; }
+    .match-section::before {
+      content: "";
+      position: absolute;
+      inset: -120px auto auto -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(0, 184, 184, 0.13);
+      pointer-events: none;
+    }
+    .match-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .match-score {
+      display: grid;
+      place-items: center;
+      min-height: 340px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 56%),
+        conic-gradient(var(--accent) 0 92%, rgba(93, 107, 134, 0.18) 92% 100%);
+      padding: 16px;
+    }
+    .score-inner {
+      display: grid;
+      place-items: center;
+      width: min(250px, 78vw);
+      aspect-ratio: 1;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.08);
+    }
+    .score-inner strong {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(58px, 9vw, 86px);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+    }
+    .score-inner span { color: var(--muted); font-weight: 800; }
+    .score-inner em {
+      display: block;
+      margin-top: 6px;
+      color: var(--primary);
+      font-style: normal;
+      font-weight: 850;
+    }
+    .match-cards { display: grid; gap: 12px; }
+    .match-card {
+      display: grid;
+      grid-template-columns: 150px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .match-card b { font-size: 16px; }
+    .match-card p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+    .bar {
+      height: 10px;
+      margin-top: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(93, 107, 134, 0.16);
+    }
+    .bar span {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+    }
+    .match-percent {
+      min-width: 54px;
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 900;
+      text-align: right;
+    }
+    .requirement-note {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .note-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(79, 124, 255, 0.1);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .note-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 3px;
+      font-size: 15px;
+    }
+
+    .advantage h3, .project h3 { margin: 0 0 8px; font-size: 20px; }
+    .advantage p, .project p, .timeline p { margin: 0; color: var(--muted); }
+    .advantage .tag { color: var(--accent); font-weight: 800; }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .filter.active { color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--primary), var(--primary-2)); }
+    .project { display: grid; gap: 12px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .project:hover { transform: translateY(-4px); }
+    .project-top { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+    .pill { padding: 6px 10px; border-radius: 999px; color: var(--primary); background: rgba(79, 124, 255, 0.12); font-size: 13px; font-weight: 800; white-space: nowrap; }
+    .project ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .project li { margin: 6px 0; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      padding-left: 26px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--primary), var(--accent));
+    }
+    .time-item { position: relative; padding: 20px; }
+    .time-item::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 28px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.14);
+    }
+    .time-meta { color: var(--primary); font-weight: 800; }
+
+    .skill-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-cloud span {
+      padding: 11px 13px;
+      border-radius: 16px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .footer { padding: 32px; margin: 24px 0 40px; text-align: center; color: var(--muted); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 860px) {
+      .page { width: min(100% - 24px, 720px); }
+      .topbar { align-items: stretch; flex-direction: column; }
+      .actions { justify-content: center; }
+      .hero { grid-template-columns: 1fr; padding-top: 28px; }
+      .hero-main { padding: 30px; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .match-layout, .match-card, .requirement-note { grid-template-columns: 1fr; }
+      .match-percent { text-align: left; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .topbar, .filters, .actions, .footer { display: none; }
+      .glass { box-shadow: none; break-inside: avoid; }
+      .page { width: 100%; }
+      section, .hero { margin: 12px 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar glass">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="avatar">任</span>
+        <span>任天娇｜AI 产品经理</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#ope-match">匹配</a>
+        <a href="#advantages">优势</a>
+        <a href="#projects">项目</a>
+        <a href="#timeline">经历</a>
+        <a href="#skills">技能</a>
+      </nav>
+      <div class="actions">
+        <button class="button" id="themeToggle" type="button">切换主题</button>
+        <button class="button" onclick="window.print()" type="button">打印 / PDF</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-main glass reveal">
+          <span class="eyebrow">AI Product Manager · Medical AI · AIGC</span>
+          <div class="ope-badge">
+            致OPE讴谱科技
+            <small>初级 AI 产品经理｜定向匹配展示</small>
+          </div>
+          <h1>任天娇</h1>
+          <p class="subtitle">用 AI Agent、RAG 与产品闭环，把复杂场景变成可落地方案。</p>
+          <p class="hero-copy">
+            河北工业大学工业设计本科，具备 AI 产品从 0 到 1 的项目实践经验。曾参与智能问诊 Agent、电子病历质控系统、
+            AIGC 文创等项目，覆盖需求分析、流程设计、原型验证、Prompt 工程、RAG 知识库分层、模型效果评估与交付落地。
+          </p>
+          <div class="chips" aria-label="关键词">
+            <span class="chip">求职意向：AI 产品经理</span>
+            <span class="chip">居住地：浙江杭州</span>
+            <span class="chip">医疗健康 AI</span>
+            <span class="chip">B 端数字化</span>
+            <span class="chip">AI Agent 工作流</span>
+            <span class="chip">Vibe Coding / Codex 实操</span>
+          </div>
+        </div>
+
+        <aside class="profile-card glass reveal" aria-label="联系信息">
+          <div class="contact-item">
+            <div>📱</div>
+            <div><b>电话</b><span>17320290080</span></div>
+          </div>
+          <div class="contact-item">
+            <div>💬</div>
+            <div><b>微信</b><span>15933441097</span></div>
+          </div>
+          <div class="contact-item">
+            <div>✉️</div>
+            <div><b>邮箱</b><span>15933441097@163.com</span></div>
+          </div>
+          <div class="contact-item">
+            <div>🎓</div>
+            <div><b>教育背景</b><span>河北工业大学（211）｜工业设计｜2021.09 - 2025.06</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="ope-match" class="match-section glass reveal" aria-label="OPE 岗位匹配可视化">
+        <div class="section-head">
+          <h2>为什么我匹配 OPE 的岗位需求</h2>
+          <p>岗位强调 AI Agent 子模块、需求分析、原型 / PRD / 验收、AI 前端工具、Vibe Coding Demo 与快速成长路径；我的经历正好覆盖"产品设计 + AI 工作流 + 落地交付"的组合。</p>
+        </div>
+        <div class="match-layout">
+          <div class="match-score" aria-label="综合匹配度 92%">
+            <div class="score-inner">
+              <div>
+                <strong>92%</strong>
+                <span>岗位匹配度</span>
+                <em>可快速承接 AI 产品模块</em>
+              </div>
+            </div>
+          </div>
+          <div class="match-cards">
+            <article class="match-card">
+              <div>
+                <b>AI Agent 模块设计</b>
+                <p>岗位：Agent 能力、任务、成果、规则、信用等模块设计</p>
+              </div>
+              <div>
+                <p>简历证据：参与智能问诊 Agent 链路、风险分层、Dify Chatflow 与 RAG 服务承接设计。</p>
+                <div class="bar" aria-hidden="true"><span style="--value: 95%"></span></div>
+              </div>
+              <span class="match-percent">95</span>
+            </article>
+            <article class="match-card">
+              <div>
+                <b>产品基本功</b>
+                <p>岗位：需求分析、用户流程、页面原型、PRD、验收标准</p>
+              </div>
+              <div>
+                <p>简历证据：完成竞品拆解、核心链路设计、医生端实时提醒功能设计、业务流程梳理与交付闭环。</p>
+                <div class="bar" aria-hidden="true"><span style="--value: 90%"></span></div>
+              </div>
+              <span class="match-percent">90</span>
+            </article>
+            <article class="match-card">
+              <div>
+                <b>AI 工具与 Demo 意识</b>
+                <p>岗位：AI 前端设计工具、Vibe Coding、Demo / 页面验证</p>
+              </div>
+              <div>
+                <p>简历证据：熟悉 VS Code、vibe coding、AI Agent 工具链，并能用 Codex 将 PDF 简历快速转成交互网页。</p>
+                <div class="bar" aria-hidden="true"><span style="--value: 88%"></span></div>
+              </div>
+              <span class="match-percent">88</span>
+            </article>
+            <article class="match-card">
+              <div>
+                <b>学历与成长潜力</b>
+                <p>岗位：211 / 本科及以上，早期团队快速承担核心模块</p>
+              </div>
+              <div>
+                <p>简历证据：河北工业大学（211）本科，已有 AI 医疗和 B 端系统项目经验，学习快、能协作、能推动落地。</p>
+                <div class="bar" aria-hidden="true"><span style="--value: 94%"></span></div>
+              </div>
+              <span class="match-percent">94</span>
+            </article>
+          </div>
+        </div>
+        <div class="requirement-note" aria-label="岗位要求对应摘要">
+          <div class="note-item"><strong>能独立负责小模块</strong>智能问诊与病历质控均有模块级设计经历。</div>
+          <div class="note-item"><strong>懂 Agent 边界</strong>设计风险分层，避免 AI 输出诊断、处方和替代用药。</div>
+          <div class="note-item"><strong>能跟进研发实现</strong>参与知识召回链路、输出规则和上线后指标验证。</div>
+          <div class="note-item"><strong>可沉淀项目经验</strong>已覆盖医疗 AI、B 端质控、AIGC 文创多类落地场景。</div>
+        </div>
+      </section>
+
+      <section class="grid grid-3" aria-label="关键成果">
+        <article class="metric glass card reveal">
+          <strong data-count="20">0%</strong>
+          <span>智能问诊项目上线后，问答召回率提升</span>
+        </article>
+        <article class="metric glass card reveal">
+          <strong data-count="53.41">0%</strong>
+          <span>电子病历质控项目上线后，全院病历问题修正率提升至</span>
+        </article>
+        <article class="metric glass card reveal">
+          <strong data-count="64.78">0%</strong>
+          <span>病历质控率提升</span>
+        </article>
+      </section>
+
+      <section id="advantages">
+        <div class="section-head">
+          <h2>个人优势</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="advantage glass card reveal">
+            <h3><span class="tag">01</span> AI 产品实践</h3>
+            <p>围绕医疗健康与 B 端数字化场景，参与智能问诊 Agent、电子病历质控、AIGC 文创等 AI 产品方案设计与落地验证。</p>
+          </article>
+          <article class="advantage glass card reveal">
+            <h3><span class="tag">02</span> 项目落地意识</h3>
+            <p>关注上线后的实际结果，能够将召回率、修正率、质控率等业务指标纳入产品迭代闭环。</p>
+          </article>
+          <article class="advantage glass card reveal">
+            <h3><span class="tag">03</span> AI 产品方法</h3>
+            <p>熟悉从需求分析、流程设计、原型验证到效果评估的基本方法，理解安全边界与落地风险。</p>
+          </article>
+          <article class="advantage glass card reveal">
+            <h3><span class="tag">04</span> 技术与协作</h3>
+            <p>理解 Transformer、Embedding、RAG、Prompt 工程、AI Agent 等能力，具备 To B 客户需求对接与跨部门协作经验。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <h2>项目展示</h2>
+        </div>
+        <div class="filters" role="tablist" aria-label="项目筛选">
+          <button class="button filter active" data-filter="all" type="button">全部</button>
+          <button class="button filter" data-filter="medical" type="button">医疗 AI</button>
+          <button class="button filter" data-filter="quality" type="button">病历质控</button>
+          <button class="button filter" data-filter="aigc" type="button">AIGC</button>
+        </div>
+        <div class="grid grid-2" id="projectGrid">
+          <article class="project glass card reveal" data-category="medical">
+            <div class="project-top">
+              <h3>智能问诊 Agent</h3>
+              <span class="pill">LLM + RAG + Agent</span>
+            </div>
+            <p>面向 C 端预问诊、医生 / 科室匹配、报告指标解读等就医场景，覆盖"诊前 - 诊中 - 诊后"三阶段。</p>
+            <ul>
+              <li>调研蚂蚁阿福、微医、夸克健康助手等竞品，拆解症状问诊、预约挂号、报���解读场景。</li>
+              <li>设计"用户输入 - 意图识别 - 风险分层 - RAG 检索 - 结构化回复 - 医疗服务承接"核心链路。</li>
+              <li>搭建 Dify Chatflow，设计低 / 中 / 高 / 紧急风险四类路径，优化 Prompt 规则与安全边界。</li>
+              <li>完成药品、疾病、检查指标、风险规则、服务工具等知识库分层，完善问诊小结与预约挂号承接。</li>
+            </ul>
+          </article>
+
+          <article class="project glass card reveal" data-category="quality">
+            <div class="project-top">
+              <h3>电子病历质控系统</h3>
+              <span class="pill">AI 质控闭环</span>
+            </div>
+            <p>面向医院病历质控管理场景，通过 AI 辅助病历实时提醒、整体审核、Agent 自动筛选与数据报表分析。</p>
+            <ul>
+              <li>梳理传统人工质控流程，明确 AI 运行质控、AI 审核质控、Agent 自动筛选分配等赋能点。</li>
+              <li>参与医生端 AI 实时提醒设计，包括分级提醒、缺陷定位、修改建议、提交前自查与申诉入口。</li>
+              <li>设计"病历文本解析 → 质控场景识别 → RAG 知识召回 → 大模型判断 → 缺陷清单输出"流程。</li>
+              <li>强调问题定位、原因解释与修改建议，提高 AI 质控结果的可解释性与业务可采纳性。</li>
+            </ul>
+          </article>
+
+          <article class="project glass card reveal" data-category="aigc">
+            <div class="project-top">
+              <h3>高校 AIGC 文创设计管理</h3>
+              <span class="pill">生成式内容落地</span>
+            </div>
+            <p>参与高校海报、吉祥物、表情包、条漫、小程序等 AIGC 文创项目，协调设计、制作、客户与供应链。</p>
+            <ul>
+              <li>对接用户需求，协同内部团队完成需求分析、方案设计、生产落地与交付标准推进。</li>
+              <li>参与海报、周边、校园活动物料等视觉内容生成与优化，协助完成效果验证与版式调整。</li>
+              <li>跟进设计打样、材料工艺、尺寸规范与加工方式确认，保障 AI 生成内容与生产效果一致。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="timeline">
+        <div class="section-head">
+          <h2>经历时间线</h2>
+        </div>
+        <div class="timeline">
+          <article class="time-item glass reveal">
+            <div class="time-meta">2025.06 - 2026.05｜联新移动医疗科技有限公司</div>
+            <h3>AI 产品经理</h3>
+            <p>参与智能问诊 Agent、基于 LLM + RAG + Agent 的电子病历质控系统，以及高校 AIGC 文创项目。</p>
+          </article>
+          <article class="time-item glass reveal">
+            <div class="time-meta">2022.06 - 2025.03｜天津壹刻幻象科技有限公司</div>
+            <h3>数字影像部项目专员</h3>
+            <p>参与数字影像相关项目推进，积累需求对接、团队协作、项目交付与视觉生��管理经验。</p>
+          </article>
+          <article class="time-item glass reveal">
+            <div class="time-meta">2021.09 - 2025.06｜河北工业大学（211）</div>
+            <h3>工业设计｜本科</h3>
+            <p>工业设计背景带来用户体验、视觉表达与系统化设计能力，支撑 AI 产品中的流程与交互设计。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-head">
+          <h2>能力标签</h2>
+        </div>
+        <div class="glass card reveal">
+          <div class="skill-cloud">
+            <span>AI Agent</span>
+            <span>RAG 知识库</span>
+            <span>Prompt 工程</span>
+            <span>模型微调</span>
+            <span>Embedding</span>
+            <span>Transformer</span>
+            <span>Dify</span>
+            <span>Axure</span>
+            <span>PS</span>
+            <span>VS Code</span>
+            <span>需求分析</span>
+            <span>竞品拆解</span>
+            <span>流程设计</span>
+            <span>原型验证</span>
+            <span>To B 客户对接</span>
+            <span>跨部门协作</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer glass">
+      这是一份基于原始 PDF 简历内容重构的交互式网页简历，可直接用于浏览器展示、投递链接包装或打印为新版 PDF。
+    </footer>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem("resume-theme");
+    if (savedTheme) root.dataset.theme = savedTheme;
+
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = nextTheme;
+      localStorage.setItem("resume-theme", nextTheme);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        if (entry.target.classList.contains("metric")) animateMetric(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+    function animateMetric(card) {
+      const number = card.querySelector("strong");
+      const target = Number(number.dataset.count);
+      const decimals = target % 1 === 0 ? 0 : 2;
+      const start = performance.now();
+      const duration = 1000;
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        number.textContent = `${(target * eased).toFixed(decimals)}%`;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    document.querySelectorAll(".filter").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        const filter = button.dataset.filter;
+        document.querySelectorAll(".project").forEach((project) => {
+          const visible = filter === "all" || project.dataset.category === filter;
+          project.style.display = visible ? "grid" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
